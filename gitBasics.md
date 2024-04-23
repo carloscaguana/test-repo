@@ -85,6 +85,32 @@ You can also clone the repository into a directory with a different name:
 
 `git clone <url> new-filename`
 
+
+## Recording Files to the Repository
+Each file in your working directory can be in one of two states: tracked or untracked. Tracked files are files that Git knows about while untracked files are files that Git is unaware of. 
+
+NTS: **Add Figure 8 image from textbook**
+
+### Checking the Status of your Files
+To check the status of the files in your working directory, you can use the following command:
+
+`git status`
+
+This command tells the user what branch they are one (usually *'main'*), as well as the state of the files in that working directory.
+
+### Tracking New Files
+
+To begin tracking a new file, you can use this command:
+
+`git add <filename>`
+
+This means that the file is tracked and staged, ready to be commited.
+
+### Staging Modified Files
+To stage a file that is unstaged, you simply use the `git add` command. This multipurpose command can be used to track new files and stage files.
+
+Suppose you've already staged a file and you are ready to commit. However, you remember a small detail in that file that you want to change so you do so. If you were to run the `git status` command after that minor change, you would see that the file appears both as staged and unstaged.
+
 ---
 ### How to push an existing repository from git bash
 
