@@ -89,7 +89,7 @@ You can also clone the repository into a directory with a different name:
 ## Recording Files to the Repository
 Each file in your working directory can be in one of two states: tracked or untracked. Tracked files are files that Git knows about while untracked files are files that Git is unaware of. 
 
-NTS: **Add Figure 8 image from textbook**
+![status of files](Images/fileStatus.png)
 
 ### Checking the Status of your Files
 To check the status of the files in your working directory, you can use the following command:
