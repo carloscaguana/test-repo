@@ -111,6 +111,38 @@ To stage a file that is unstaged, you simply use the `git add` command. This mul
 
 Suppose you've already staged a file and you are ready to commit. However, you remember a small detail in that file that you want to change so you do so. If you were to run the `git status` command after that minor change, you would see that the file appears both as staged and unstaged.
 
+This is because when you modified the file after staging it, the changes made to the file are unstaged. You would have to run the `git add` command again in order to stage the latest version of the file you're working on.
+
+### Short Status
+
+To see your changes in a more simplified way, you can simply run the following command:
+
+`git status -s` or `git status --short`
+
+`??`: means the file is not being tracked
+
+`A`: the file has been added to the staging area
+
+`M`: the file has been modified
+
+### Ignoring Files
+
+There are certain files you want to keep hidden, like log files or files created by your OS. You can add them to a `.gitignore` file so that these files aren't commited to the Git repository.
+
+`#` functions like the `//` in Java. The line is not read and acts like a line to write comments.
+
+### Viewing Your Staged and Unstaged Changes
+If you want to know exactly what was changed in a file, you can use the command: 
+
+`git diff`
+
+It tells you the changes you've made that you havent staged yet. This command will give you no output if you've staged your changes.
+
+`git diff --staged`
+`git diff --cached`
+
+This command compares your staged changes to your last commit. Use this command to see what you've staged that will go into your next commit.
+
 ---
 ### How to push an existing repository from git bash
 
