@@ -143,6 +143,24 @@ It tells you the changes you've made that you havent staged yet. This command wi
 
 This command compares your staged changes to your last commit. Use this command to see what you've staged that will go into your next commit.
 
+### Committing your Changes
+To commit changes that are staged, you use the following command: 
+
+`git commit`
+
+This command will open the an editor (usually vim or emacs) where the user can write the desired commit message. A faster way to commit without opening up an editor is by using the command: 
+
+`git commit -m "message"`
+
+### Skipping the Staging Area
+
+`git commit -a -m "message"`
+
+This command can be used to skip the staging area. By doing so, all the tracked files that have been changed are automatically staged and committed. The `-a` flag might include unwanted changes to your commit.
+
+### Removing Files
+Before removing a file from Git, the file you want to remove has to be unstaged.
+
 ---
 ### How to push an existing repository from git bash
 
