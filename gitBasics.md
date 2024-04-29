@@ -148,7 +148,7 @@ To commit changes that are staged, you use the following command:
 
 `git commit`
 
-This command will open the an editor (usually vim or emacs) where the user can write the desired commit message. A faster way to commit without opening up an editor is by using the command: 
+This command will open the an editor (usually vim or emacs) where the user can write the desired commit message. A faster way to commit without opening up an editor is by using the command:
 
 `git commit -m "message"`
 
@@ -180,6 +180,40 @@ You can pass files, directories, and file-golb patterns to these commands. Searc
 Git doesn't track file movement. Instead, it renames them. Use the following command to rename a file:
 
 `git mv <oldFileName> <newFileName>`
+
+## Viewing the Commit History
+To see all the commits you've done, the simplest command you could use is: 
+
+`git log`
+
+This command lists the commits in reverse chronilogical order, meaning that the most recent commit will appear at the top.
+
+Another useful option is `-p` or `--patch` which shows the difference introduced in each commit. Another useful option is to limit the number of entries by using, for example, `-3` to show only the last 3 entries.
+
+`git log --stat`
+
+This command prints out each commit entry, a list of modified files, how many files were changed, and how many lines in those files were added/removed. A summary is also included at the end. 
+
+`git log --pretty`
+
+This command changes the log output to different formats compared to the default. You can use different option values
+
+`git log --pretty=oneline`
+
+`git log --pretty=short`
+
+`git log --pretty=full`
+
+`git log --pretty=fuller`
+
+`git log ==pretty=format`
+
+The `format` option value lets you customize the log output format. A list of specifiers to use after `format:`
+![Useful specifiers for 'format'](Images/'format'%20specifiers.png)
+
+You can also use the option `--graph` which shows a graph showing your branch and merge history. It's really useful with `oneline` and `format` option values.
+
+
 
 **PAGE LEFT OFF ON: 40**
 
