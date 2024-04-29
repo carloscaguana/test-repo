@@ -159,7 +159,29 @@ This command will open the an editor (usually vim or emacs) where the user can w
 This command can be used to skip the staging area. By doing so, all the tracked files that have been changed are automatically staged and committed. The `-a` flag might include unwanted changes to your commit.
 
 ### Removing Files
-Before removing a file from Git, the file you want to remove has to be unstaged.
+Before removing a file from Git, the file you want to remove has to be unstaged. To remove a file, use the command: 
+
+`git rm <file>`
+
+This command removes the file from the working directory and deletes it from the directory. 
+
+If the file is staged or has been modified, you can still remove it from the directory using this command:
+
+`git rm -f <file>`
+
+This forces a removal of a file. 
+
+`git rm --cached <file>`
+
+You can pass files, directories, and file-golb patterns to these commands. Search 'file glob patterns.'
+
+### Moving Files
+
+Git doesn't track file movement. Instead, it renames them. Use the following command to rename a file:
+
+`git mv <oldFileName> <newFileName>`
+
+**PAGE LEFT OFF ON: 40**
 
 ---
 ### How to push an existing repository from git bash
