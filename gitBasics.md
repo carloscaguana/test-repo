@@ -188,8 +188,7 @@ To see all the commits you've done, the simplest command you could use is:
 
 This command lists the commits in reverse chronilogical order, meaning that the most recent commit will appear at the top.
 
-Another useful option is `-p` or `--patch` which shows the difference introduced in each commit. Another useful option is to limit the number of entries by using, for example, `-3` to show only the last 3 entries.
-
+Another useful option is `-p` or `--patch` which shows the difference introduced in each commit.
 `git log --stat`
 
 This command prints out each commit entry, a list of modified files, how many files were changed, and how many lines in those files were added/removed. A summary is also included at the end. 
@@ -213,9 +212,22 @@ The `format` option value lets you customize the log output format. A list of sp
 
 You can also use the option `--graph` which shows a graph showing your branch and merge history. It's really useful with `oneline` and `format` option values.
 
+### Limiting Log Output
 
+There are useful limiting options when using `git log`, one of them being the `-<n>` option. `n` can be any interger and it will show you the last `n` commits.
 
-**PAGE LEFT OFF ON: 40**
+`git log --since=<specific date>` or `git log --until=<relative date>`
+
+You could also use time-limiting options such as `--since` and `until` which works with a lot of formats. You can enter a specific date like `2022-04-19`, or a relative date like `1 year 43 days 2 hours ago`.
+
+![Options to limit the output of 'git log'](Images/Limiting%20log%20output%20options.png)
+
+## Undoing Things
+
+**PAGE LEFT OFF ON: 45**
+
+**NTS: figure out how to implement text colors on headings**
+
 
 ---
 ### How to push an existing repository from git bash
