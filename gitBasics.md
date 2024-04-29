@@ -224,7 +224,17 @@ You could also use time-limiting options such as `--since` and `until` which wor
 
 ## Undoing Things
 
-**PAGE LEFT OFF ON: 45**
+While using Git, you might realize that you want to undo something. If you commit too early and you forgot to add files or want to change your commit message, you can redo the commit by using the command:
+
+`git commit --amend`
+
+It takes you to the staging area and uses it for the commit. This also opens up the commit-message editor with your previous commit message. Here, you can edit the message.
+
+**figure out how to get out of commit-message editor and write the info to this file**
+
+**PAGE LEFT OFF ON: 46**
+
+**For some examples, run these commands and add a screenshot to this file when necessary**
 
 **NTS: figure out how to implement text colors on headings**
 
