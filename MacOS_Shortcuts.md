@@ -1,3 +1,7 @@
 > Command + Shift + .
 
-this command makes hidden '.' files visible
+This command makes hidden '.' files visible
+
+`cd ..`
+
+This command will go back one directory.
