@@ -241,6 +241,9 @@ While using Git, you might realize that you want to undo something. If you commi
 
 It takes you to the staging area and uses it for the commit. This also opens up the commit-message editor with your previous commit message. Here, you can edit the message.
 
+`git commit --amend -m "message"`
+If the commit-message editor doesn't work for whatever reason, you could use the command above to change the commit message.
+
 **figure out how to get out of commit-message editor and write the info to this file**
 
 **PAGE LEFT OFF ON: 46**
