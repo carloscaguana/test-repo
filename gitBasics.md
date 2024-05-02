@@ -242,7 +242,25 @@ While using Git, you might realize that you want to undo something. If you commi
 It takes you to the staging area and uses it for the commit. This also opens up the commit-message editor with your previous commit message. Here, you can edit the message.
 
 `git commit --amend -m "message"`
+
 If the commit-message editor doesn't work for whatever reason, you could use the command above to change the commit message.
+
+### Unstaging a Staged File
+
+`git reset HEAD <file>`
+
+`git restore --staged <file>`
+
+The command above makes it so that the staged file becomes unstaged. Any changes made to the file are still there, meaning any changes that were made don't disappear.
+
+### Unmodifying a Modified File
+
+`git checkout -- <file>`
+
+`git restore <file>`
+
+Acts sort of like an 'undo' button. It reverts the changes made to the file to what it was when you made the last commit. Can only be used on unstaged files.
+
 
 **figure out how to get out of commit-message editor and write the info to this file**
 
