@@ -26,6 +26,17 @@ Displays list of your configuration variables for git on your local system
 
 Used to check a specific value for the given key
 
+Here are some flags that can be used with `git config`:
+
+- `--global`: specifies that the configuration should be applied globally across all of your Git repositories on your system.
+- `--local` or `--repository`: Sets the configuration for the current repository only. This overrides any global configuration for that specific repository.
+- `--system`: Sets the configuration system-wide for all users on the system. This typically requires administrative privileges.
+- `--get`: Retrieves the value of a specific configuration key.
+- `--unset`: Removes a specific configuration key.
+- `--unset-all`: Removes all values associated with a specific configuration key.
+- `--list`: Lists all the configuration settings for the current repository or globally, depending on the context.
+
+
 ## Getting Help with Commands
 There are 3 ways to get information from manual pages (manpage) while using Git:
 
