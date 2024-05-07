@@ -261,10 +261,28 @@ The command above makes it so that the staged file becomes unstaged. Any changes
 
 Acts sort of like an 'undo' button. It reverts the changes made to the file to what it was when you made the last commit. Can only be used on unstaged files.
 
+## Working with Remotes
+
+To collaborate on Git projects, it's ideal to know how to manage your remote repositories which are projects hosted on the Internet or network somewhere. 
+
+### Showing your Remotes
+
+`git remote`
+
+This command lists the remote servers you have configured. You should at least see `origin` if you've cloned your repo. 
+
+`git remote -v`
+
+This command shows the URLs that Git has stored for the shortname that's used when reading/writing to the remote. This command lists all the remotes if you have more than one. 
+
+### Adding Remote Repositories
+
+
+
 
 **figure out how to get out of commit-message editor and write the info to this file**
 
-**PAGE LEFT OFF ON: 46**
+**PAGE LEFT OFF ON: 52**
 
 **For some examples, run these commands and add a screenshot to this file when necessary**
 
