@@ -2,7 +2,32 @@
 
 This file contains information that I find important in order to understand and familiarize myself with Git. It includes commands, features, and additional information that makes it easy for me to reference as I progress.
 
-NTS: **Create a Table of Contents**
+# Table of Contents
+- [Git Setup](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#git-setup)
+- [Getting Help with Commands](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#getting-help-with-commands)
+- [Getting a Git Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#getting-a-git-repository)
+  - [Initializing a Repository in an Existing Directory](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#option-1-initializing-a-repository-in-an-existing-directory)
+  - [Cloning an Existing Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#option-2-cloning-an-existing-repository)
+- [Recording Changes to the Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#recording-files-to-the-repository)
+  - [Checking the Status of Your Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#checking-the-status-of-your-files)
+  - [Tracking New Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tracking-new-files)
+  - [Staging Modified Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#staging-modified-files)
+  - [Short Status](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#short-status)
+  - [Ignoring Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#ignoring-files)
+  - [Viewing Your Staged and Unstaged Changes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#viewing-your-staged-and-unstaged-changes)
+  - [Committing your Changes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#committing-your-changes)
+  - [Skipping the Staging Area](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#skipping-the-staging-area)
+  - [Removing Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#removing-files)
+  - [Moving Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#moving-files)
+- [Viewing the Commit History](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#viewing-the-commit-history)
+  - [Limiting Log Output](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#limiting-log-output)
+- [Undoing Things](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#undoing-things)
+  - [Unstaging a Staged File](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#unstaging-a-staged-file)
+  - [Unmodifying a Modified File](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#unmodifying-a-modified-file)
+- [Working with Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#working-with-remotes)
+  - [Showing your Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#showing-your-remotes)
+  - [Adding Remote Repositories](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#adding-remote-repositories)
+
 
 ## Git Setup
 
@@ -84,7 +109,8 @@ To find the URL of the repository you want to clone:
 4. Copy the HTTPS web URL
 5. Paste the web URL into the terminal
 
-NTS:**insert image of how to access repo url from GitHub**
+![Green Button](Images/codeButton.png)
+![URL](Images/urlLocation.png)
 
 The information in the URL would look something like this:
 
@@ -97,7 +123,7 @@ You can also clone the repository into a directory with a different name:
 `git clone <url> new-filename`
 
 
-## Recording Files to the Repository
+## Recording Changes to the Repository
 Each file in your working directory can be in one of two states: tracked or untracked. Tracked files are files that Git knows about while untracked files are files that Git is unaware of. 
 
 ![status of files](Images/fileStatus.png)
