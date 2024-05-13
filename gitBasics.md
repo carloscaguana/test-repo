@@ -8,7 +8,7 @@ This file contains information that I find important in order to understand and 
 - [Getting a Git Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#getting-a-git-repository)
   - [Initializing a Repository in an Existing Directory](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#option-1-initializing-a-repository-in-an-existing-directory)
   - [Cloning an Existing Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#option-2-cloning-an-existing-repository)
-- [Recording Changes to the Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#recording-files-to-the-repository)
+- [Recording Changes to the Repository](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#recording-changes-to-the-repository)
   - [Checking the Status of Your Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#checking-the-status-of-your-files)
   - [Tracking New Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tracking-new-files)
   - [Staging Modified Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#staging-modified-files)
