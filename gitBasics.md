@@ -2,6 +2,15 @@
 
 This file contains information that I find important in order to understand and familiarize myself with Git. It includes commands, features, and additional information that makes it easy for me to reference as I progress.
 
+<style>
+  h2{
+    color: #008080
+  }
+  h3{
+    color: #ff7f50
+  }
+</style>
+
 # Table of Contents
 - [Git Setup](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#git-setup)
 - [Getting Help with Commands](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#getting-help-with-commands)
@@ -303,6 +312,25 @@ This command shows the URLs that Git has stored for the shortname that's used wh
 
 ### Adding Remote Repositories
 
+`git remote add <shortname> <url>`
+
+This command adds a new remote explicitly. You can use the string `<shortname>` on the command line instead of the URL.
+
+### Fetching/Pulling from Your Remotes
+
+`git fetch <remote>`
+
+This command obtains data from your remote projects. It fetches any new work that has been pushed to the server since you cloned it. This command ONLY downloads data to your local repository; it doesn't merge it with any other work you're working on. 
+
+`git pull`
+
+Automatically fetches and merges the remote branch into your current branch. 
+
+### <span style >Pushing to Your Remotes</span>
+
+When you have a project to a point where you want to share it, you have to push it upstream. Us this command:
+
+`git push <remote> <branch>`
 
 
 
