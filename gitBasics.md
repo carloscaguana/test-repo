@@ -326,21 +326,36 @@ This command obtains data from your remote projects. It fetches any new work tha
 
 Automatically fetches and merges the remote branch into your current branch. 
 
-### <span style >Pushing to Your Remotes</span>
+### Pushing to Your Remotes
 
 When you have a project to a point where you want to share it, you have to push it upstream. Us this command:
 
 `git push <remote> <branch>`
 
+<ins>Ex.</ins> your branch would be `main` and your remote would be `origin`. This command works only if you've cloned from a server to which you have write access and nobody has pushed in the meantime. 
 
+### Inspecting a Remote
+ 
+ `git remote show <remote>`
+
+This command displays the URL for the remote repo, as well as the tracking branch info. It also lists all the remote references it has pulled down.
+
+### Renaming and Removing Remotes
+
+`git remote rename <old-name> <new-name>`
+
+This command changes a remote's shortname. This also changes all your remote-tracking branch names. 
+
+`git remote remove <remote-name>`
+
+This command deletes all remote-tracking branches and configuration settings associated with that remote.
+
+## Tagging
 
 **figure out how to get out of commit-message editor and write the info to this file**
 
-**PAGE LEFT OFF ON: 52**
+**PAGE LEFT OFF ON: 55**
 
-**For some examples, run these commands and add a screenshot to this file when necessary**
-
-**NTS: figure out how to implement text colors on headings**
 
 
 ---
