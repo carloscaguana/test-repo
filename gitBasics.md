@@ -352,9 +352,83 @@ This command deletes all remote-tracking branches and configuration settings ass
 
 ## Tagging
 
+Git has the ability to tag specific points in a repo's history as being important. People use this function to mark release points (version types).
+
+### Listing Your Tags
+
+`git tag`
+
+This command lists the tags in alphabetical order. You can also use this same command with the optional `-l` or `--list` at the end. 
+
+You can also search for tags that match a specific pattern by using widlcards. It's important to keep in mind that if you are using a wildcard, you are required to use either `-l` or `--list`. For example:
+
+`git tag -l "v1.8.5*"`
+
+### Creating Tags
+
+There are two types of tags in Git: 'lightweight' and 'annotated.'
+
+**Lightweight:** is like a branch that doesn't change. It is essentially a pointer to a specific commit. 
+
+**Annotated:** are stored as full objects in the Git database. They contain tagger name, email, and date; have a tagging message, can be signed and verified with GNU Privacy Guard.
+
+### Annotated Tags
+
+`git tag -a <tagname> -m "message"`
+
+This command can be used to create an annotated tag. if you don't include `-m`, Git will automatically open your editor so you can type the message.
+
+To see the tag data, use the command: 
+
+`git show <tagname>`
+
+This command shows the tagger info and everything related to it before showing the commit info.
+
+### Lightweight Tags
+
+A lightweight tag is basically the commit checksum (also called a hash) stored in a file. To create a lightweight tag, don't supply any of the `-a`, `-s`, or `-m` options. Just proivde a tagname:
+
+`git tag <tagname>`
+
+A difference between an annotated tag and a lightweight tag is that the latter doesn't show any tagger info, it simply just displays the commit info. 
+
+### Tagging Later
+
+You can tag previous commits. All you have to do is specify the commit checksum (or part of it) at the end of the command:
+
+`git tag -a <tagname> <checksum>`
+
+![Commit Checksum](Images/commitChecksum.png)
+
+### Sharing Tags
+
+You have to explicitly push tags to a shared server after you've created them. 
+
+`git push <remote-name> <tagname>`
+
+If you have a lot of tags you want to push up at once, you can use the `--tags` option. This will transfer all the tags to the remote server that aren't already there (the `remote-name` is usually `origin`):
+
+`git push <remote-name> --tags`
+
+### Deleting tags
+
+To delete tags on your local repo, use the following command:
+
+`git tag -d <tagname>`
+
+Keep in mind this doesn't delete the tag from any remote servers. There are two ways to remove tags from a remote server:
+
+`git push <remote> :refs/tags/<tagname>`
+
+`git push <remote> --delete <tagname>`
+
+The second option is more intuitive.
+
+## Git Aliases
+
 **figure out how to get out of commit-message editor and write the info to this file**
 
-**PAGE LEFT OFF ON: 55**
+**PAGE LEFT OFF ON: 60**
 
 
 
