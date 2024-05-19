@@ -46,6 +46,7 @@ This file contains information that I find important in order to understand and 
     - [Annotated Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#annotated-tags)
     - [Lightweight Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#lightweight-tags)
   - [Tagging Later](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tagging-later)
+  - [Showing Tag Info]()
   - [Sharing Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#sharing-tags)
   - [Deleting Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#deleting-tags)
 - [Git Aliases](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#git-aliases)
@@ -391,12 +392,6 @@ There are two types of tags in Git: 'lightweight' and 'annotated.'
 
 This command can be used to create an annotated tag. if you don't include `-m`, Git will automatically open your editor so you can type the message.
 
-To see the tag data, use the command: 
-
-`git show <tagname>`
-
-This command shows the tagger info and everything related to it before showing the commit info.
-
 ### Lightweight Tags
 
 A lightweight tag is basically the commit checksum (also called a hash) stored in a file. To create a lightweight tag, don't supply any of the `-a`, `-s`, or `-m` options. Just proivde a tagname:
@@ -412,6 +407,13 @@ You can tag previous commits. All you have to do is specify the commit checksum 
 `git tag -a <tagname> <checksum>`
 
 ![Commit Checksum](Images/commitChecksum.png)
+
+### Showing Tag Info
+To see detailed info about a specific tag, use the command: 
+
+`git show <tagname>`
+
+This command shows the tagger info and everything related to it before showing the commit info.
 
 ### Sharing Tags
 
@@ -443,7 +445,9 @@ The second option is more intuitive.
 
 **PAGE LEFT OFF ON: 60**
 
+**'Showing Tag Info missing link in TOC**
 
+**Continue adding tags for commits (left off on 'v1.4', 0979325)**
 
 ---
 ### How to push an existing repository from git bash
