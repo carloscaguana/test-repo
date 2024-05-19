@@ -36,6 +36,19 @@ This file contains information that I find important in order to understand and 
 - [Working with Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#working-with-remotes)
   - [Showing your Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#showing-your-remotes)
   - [Adding Remote Repositories](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#adding-remote-repositories)
+  - [Fetching/Pulling from Your Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#fetchingpulling-from-your-remotes)
+  - [Pushing to Your Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#pushing-to-your-remotes)
+  - [Inspecting a Remote](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#inspecting-a-remote)
+  - [Renaming and Removing Remotes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#renaming-and-removing-remotes)
+- [Tagging](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tagging)
+  - [Listing Your Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#listing-your-tags)
+  - [Creating Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#creating-tags)
+    - [Annotated Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#annotated-tags)
+    - [Lightweight Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#lightweight-tags)
+  - [Tagging Later](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tagging-later)
+  - [Sharing Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#sharing-tags)
+  - [Deleting Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#deleting-tags)
+- [Git Aliases](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#git-aliases)
 
 
 ## Git Setup
@@ -410,7 +423,7 @@ If you have a lot of tags you want to push up at once, you can use the `--tags` 
 
 `git push <remote-name> --tags`
 
-### Deleting tags
+### Deleting Tags
 
 To delete tags on your local repo, use the following command:
 
