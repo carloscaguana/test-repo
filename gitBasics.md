@@ -46,7 +46,7 @@ This file contains information that I find important in order to understand and 
     - [Annotated Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#annotated-tags)
     - [Lightweight Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#lightweight-tags)
   - [Tagging Later](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#tagging-later)
-  - [Showing Tag Info]()
+  - [Showing Tag Info](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#showing-tag-info)
   - [Sharing Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#sharing-tags)
   - [Deleting Tags](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#deleting-tags)
 - [Git Aliases](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#git-aliases)
@@ -445,17 +445,4 @@ The second option is more intuitive.
 
 **PAGE LEFT OFF ON: 60**
 
-**'Showing Tag Info missing link in TOC**
-
-**Continue adding tags for commits (left off on 'v1.4', 0979325)**
-
----
-### How to push an existing repository from git bash
-
-`git remote add origin [https filepath]`
-
-`git branch -M main`
-
-`git push -u origin main`
-
-`ls -al`
+**Continue adding tags for commits (left off on 'v1.8', ed89ae6)**
