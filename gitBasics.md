@@ -248,6 +248,10 @@ To see all the commits you've done, the simplest command you could use is:
 
 This command lists the commits in reverse chronilogical order, meaning that the most recent commit will appear at the top.
 
+To quickly view the latest commit made, you can use the command:
+
+`git log -1`
+
 Another useful option is `-p` or `--patch` which shows the difference introduced in each commit.
 `git log --stat`
 
@@ -437,11 +441,38 @@ Keep in mind this doesn't delete the tag from any remote servers. There are two 
 
 `git push <remote> --delete <tagname>`
 
-The second option is more intuitive.
+The second option is more intuitive and you should use it.
 
 ## Git Aliases
 
+There's a feature that makes it simpler and easier to use Git called aliases. You can create shortcuts for Git commands. Examples of useful Git aliases:
 
-**PAGE LEFT OFF ON: 60**
+`git config --global alias.co checkout`
+
+`git config --global alias.br branch`
+
+`git config --global alias.ci commit`
+
+`git config --global alias.st status`
+
+So instead of typing `git status`, you just need to type `git st`. You can use aliases to create shortcuts for almost anything!
+
+Another useful alias for unstaging files in Git:
+
+`git config --global alias.unstage 'reset HEAD --'`
+
+This makes the following two commands the same: 
+
+`git unstage file1`
+
+`git reset HEAD -- file1`
+
+It's also common to add a  `last` command, which allows you to view the most recent commit:
+
+`git config --global alias.last 'log -1 HEAD'`
+
+## Git Branching
+
+**PAGE LEFT OFF ON: 63**
 
 **Tags lost due to corrupt ssd**
