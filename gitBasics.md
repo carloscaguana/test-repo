@@ -56,7 +56,18 @@ This file contains information that I find important in order to understand and 
 
 `git config`
 
-Lets you get and set configuration variables to customize your git environment
+Lets you get and set configuration variables to customize your git environment.
+Here are some flags that can be used with `git config`:
+
+- `--global`: specifies that the configuration should be applied globally across all of your Git repositories on your system.
+- `--local` or `--repository`: Sets the configuration for the current repository only. This overrides any global configuration for that specific repository.
+- `--system`: Sets the configuration system-wide for all users on the system. This typically requires administrative privileges.
+- `--get`: Retrieves the value of a specific configuration key.
+- `--unset`: Removes a specific configuration key.
+- `--unset-all`: Removes all values associated with a specific configuration key.
+- `--list`: Lists all the configuration settings for the current repository or globally, depending on the context.
+
+<ins>Ex.</ins> `git config --global user.name "John Doe"` sets the value of user.name to 'John Doe.'
 
 `git config user.name`
 
@@ -73,17 +84,6 @@ Displays list of your configuration variables for git on your local system
 `git config <key>`
 
 Used to check a specific value for the given key
-
-Here are some flags that can be used with `git config`:
-
-- `--global`: specifies that the configuration should be applied globally across all of your Git repositories on your system.
-- `--local` or `--repository`: Sets the configuration for the current repository only. This overrides any global configuration for that specific repository.
-- `--system`: Sets the configuration system-wide for all users on the system. This typically requires administrative privileges.
-- `--get`: Retrieves the value of a specific configuration key.
-- `--unset`: Removes a specific configuration key.
-- `--unset-all`: Removes all values associated with a specific configuration key.
-- `--list`: Lists all the configuration settings for the current repository or globally, depending on the context.
-
 
 ## Getting Help with Commands
 There are 3 ways to get information from manual pages (manpage) while using Git:
@@ -441,7 +441,6 @@ The second option is more intuitive.
 
 ## Git Aliases
 
-**figure out how to get out of commit-message editor and write the info to this file**
 
 **PAGE LEFT OFF ON: 60**
 
