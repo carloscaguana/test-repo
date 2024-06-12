@@ -445,4 +445,4 @@ The second option is more intuitive.
 
 **PAGE LEFT OFF ON: 60**
 
-**Continue adding tags for commits (left off on 'v1.8', ed89ae6)**
+**Tags lost due to corrupt ssd**
