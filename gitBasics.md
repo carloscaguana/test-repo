@@ -471,8 +471,90 @@ It's also common to add a  `last` command, which allows you to view the most rec
 
 `git config --global alias.last 'log -1 HEAD'`
 
-## Git Branching
+# Git Branching
 
-**PAGE LEFT OFF ON: 63**
+Branching is when you diverge from the main line of development to continue to do work without messing with the main line. Git's branching is lightweight when compared to other version control systems (VCS).
 
-**Tags lost due to corrupt ssd**
+# Table of Contents
+
+- [Branches in a Nutshell]()
+
+## Branches in a Nutshell
+
+Git stores its data as a series of snapshots. When a user makes a commit, Git stores a commit object that contains a pointer to the snapshot of the content you staged. 
+
+Assume you have a directory containing 3 files, you stage them all and commit.
+
+- Staging the files computes a checksum for each file (SHA-1)
+- It then stores that version of the file in the Git repository (Git refers to them as blobs)
+- Finally, it adds that checksum to the staging area.
+
+Your Git repo now contains 5 objects: <ins>3 blobs</ins> (each representing the contents of one of the three files), <ins>1 tree</ins> that lists the contents of the directory and specifies which files are stored as which blobs, and <ins>1 commit</ins> with the pointer to that root tree and al the commit metadata.
+
+![A commit and its tree](Images/Five_Objects_when_Commiting.png) 
+
+When you make another commit, it stores a pointer to the commit that came immediately before it, a linked list!
+
+![Commits and their parents](Images/Commits_and_Parents.png)
+
+A branch in Git is simply a pointer to one of these commits (snapshots). The default branch name is either `master` or `main`. Much like the way a linked list functions, whenever you add a new object to the list (in this case, when you make a commit) the branch pointer moves forward automatically to the new commit. This new commit object points to the previous object that came before it, its parent. 
+
+### Creating a New Branch
+
+When you create a new branch, you're basically creating a new pointer that you can move around. In order to create a new branch, use the following command:
+
+`git branch <branch-name>`
+
+This creates a new pointer to the commit you're currently on. You want to make sure that you're repo doesn't have any uncommited changes before creating a new branch to avoid any conflicts. Keep in mind, this command only creates a new branch it DOES NOT move you to that new branch.
+
+![Two Branches Pointing to the Same Commit](Images/Two-Branches.png)
+
+Git has a special pointer called `HEAD` that points to the branch you're currently on. 
+
+![Head Pointing to a Branch](Images/Head_pointer.png)
+
+To view which branch `HEAD` is pointing to, use the following command:
+
+`git log --oneline --decorate`
+
+Using this command allows you to view to which branch pointer `HEAD` is pointing to, as well as all the branches corresponding to the checksum identifier for the current commit.
+
+### Switching Branches
+
+To switch to an existing branch, you run the following command:
+
+ `git checkout <branch-name>`
+
+This moves the `HEAD` to point to the `branch-name` branch, in this case `testing`:
+
+![Moving HEAD to Different Branch](Images/Moving_Head.png)
+
+If you were to make a commit, it would look something like this:
+
+![HEAD Branch Moves Forward After a Commit is Made](Images/Commit-Testing-Branch.png)
+
+The `testing` branch has moved forward while the `master` branch points to a previous commit. Switching back to the `master` branch:
+
+![HEAD Moves Back to Master](Images/HEAD-Moves-Master.png)
+
+Moving back to the `master` branch does two things:
+
+- It moved `HEAD` pointer back to point to the `master` branch.
+- It reverted the files in your working directory back to the snapshot that `master` points to (Almost like a rewind).
+
+Keep in mind, any changes made in this branch will diverge away from the `testing` branch. Basically these changes are isolated in seperate branches. You can merge them together once you're ready
+
+![Divergent History](Images/Branch%20Divergence.png)
+
+A branch in Git is just a file that contains a 40-character SHA-1 checksum of the commit it points to. This makes creating branches cheap to create/destroy. Other important commands:
+
+`git checkout -b <new-branch-name>`
+
+Lets you create a new branch and switch to it at the same time.
+
+## Basic Branching and Merging
+
+
+**PAGE LEFT OFF ON: 70**
+
+**Create link to TOC for 'Git Branching' and other headings added**
