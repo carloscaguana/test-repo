@@ -477,7 +477,10 @@ Branching is when you diverge from the main line of development to continue to d
 
 # Table of Contents
 
-- [Branches in a Nutshell]()
+- [Branches in a Nutshell](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branches-in-a-nutshell)
+  - [Creating a New Branch](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#creating-a-new-branch)
+  - [Switching Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#switching-branches)
+- [Basic Branching and Merging](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-branching-and-merging)
 
 ## Branches in a Nutshell
 
