@@ -557,7 +557,56 @@ Lets you create a new branch and switch to it at the same time.
 
 ## Basic Branching and Merging
 
+Example of a workflow procedure:
 
-**PAGE LEFT OFF ON: 70**
+1. Do some work on a website.
+2. Create a branch for a new user story you're working on.
+3. Do some work in that branch.
+
+You might be asked to fix an issue with the website and you'll need a hotfix:
+
+1. Switch to your production branch.
+2. Create a branch to add the hotfix.
+3. After it's tested, merge the hotfix branch, and push to production.
+4. Switch back to your original user story and continue working
+
+### Basic Branching
+
+`git checkout -b <branch-name>`
+
+This command creates a branch and switches to it at the same time.
+
+REMEMBER: Git won't let you switch branches if you have uncommitted changes in your staging area or working directory. Make sure there is nothing pending before switching branches.
+
+![Simple Commit History](Images/Simple-Commit-History.png)
+
+Simple commit history.
+
+![Creating New Branch Pointer](Images/Creating-New-Branch.png)
+
+Creates a new branch pointer called `iss53`.
+
+![Branch with New Work](Images/Work-On-New-Branch.png)
+
+Work on new branch and it moves forward.
+
+![Hotfix branch Based on Master](Images/Hotfix-Branch.png)
+
+New issue with `master` branch. Moves to `master` and creates new branch called `hotfix`. Work is done on `hotfix`,moving it forward.
+
+![Master fast-forward to Hotfix](Images/Fast-Forward-Master.png)
+
+Merges `hotfix` branch into `master`. Since 'C4' (where the `hotfix` branch pointer is)
+is directly ahead of 'C2' (where `master` branch pointer is), Git simply moves the `master` pointer forward. This is known as a 'fast-forward'.
+
+![Work Continues on iss53](Images/More-Work-iss53-Branch.png)
+
+Switches back to `iss53` branch and continues working.
+
+### Basic Merging
+
+**PAGE LEFT OFF ON: 75**
 
 **Create link to TOC for 'Git Branching' and other headings added**
+
+**Try creating a branch to work on a chapter until the entire chapter is completed. Then after it is complete, merge.**
