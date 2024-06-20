@@ -605,6 +605,12 @@ Switches back to `iss53` branch and continues working.
 
 ### Basic Merging
 
+When you're ready to merge into your main branch, you want to make sure that you check out the branch that you want to merge into and run the command:
+
+`git merge <branch-name>`
+
+
+
 **PAGE LEFT OFF ON: 75**
 
 **Create link to TOC for 'Git Branching' and other headings added**
