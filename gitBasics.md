@@ -609,9 +609,25 @@ When you're ready to merge into your main branch, you want to make sure that you
 
 `git merge <branch-name>`
 
+![3 Snapshots Used In typical Merge](Images/Typical-Merge.png)
+
+Using the same example as before, say you're ready to merge `iss53` into the `master` branch. Simply use the `merge` command. In this case, Git finds the common ancestor of the two commits you want to merge, and the two commits themselves to create a new snapshot.
+
+![Merge Commit](Images/Merge-Commit.png)
+
+The new snapshot that is a result from this 3-way merge is used to create a new commit that points to it, referred to as a 'merge commit' which has more than one parent as seen in the image.
+
+### Deleting Branches
+
+If you are no longer using a branch, you can use the following command to delete it:
+
+`git branch -d <branch-name>`
+
+### Basic Merge Conflicts
 
 
-**PAGE LEFT OFF ON: 75**
+
+**PAGE LEFT OFF ON: 76**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
