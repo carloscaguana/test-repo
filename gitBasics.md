@@ -629,9 +629,57 @@ If you are no longer using a branch, you can use the following command to delete
 
 ### Basic Merge Conflicts
 
+There will be conflicts between branches when you change the same part of a file on both branches you want to merge. Instead of merging, Git will pause the merge and prompt the user to fix the issue before proceeding. 
+
+Use `git status` to view which files are unmerged. Anything that has merge conflicts will be listed as 'unmerged.' Git adds standard conflict resolution markers to the files that have conflicts which would look something like this:
+
+>`<<<<<<< HEAD: CONTENTS OF CONFLICTS IN BRANCH YOU WANT TO MERGE INTO (USUALLY MAIN)`
+>
+> `=======`
+>
+> `CONFLICTS IN BRANCH THAT'S BEING MERGED >>>>>>>`
+
+In order to solve these conflicts, you could either choose to keep one of the sides or change the entire contents of the conflicts by removing the `<,=,>` markers.
+
+After resolving these sections, you want to stage the files by using the `git add` command to mark it as resolved.
+
+Run `git status` command to ensure that all conflicts have been resolved. Once you're content with the files, run `git commit` to finalize the merge commit.
+
+## Branch Management
+
+The `*` character you see when you run the `git branch` command indicates the current branch you are on (i.e. the branch that `HEAD` points to).
+
+`git branch -v`
+
+This command displays the last commit on each branch.
+
+`git branch --merged`
+
+This command filters the list of branches that you have merged into the branch you're currently on.
+
+`git branch --no-merged`
+
+This command filters the list of branches that you have not yet merged into the current branch.
+
+### Changing a Branch Name
+
+When working in teams, you SHOULD NOT rename branches that are still being used by collaborators.
+
+`git branch --move <old-branch-name> <new-branch-name>`
+
+This command will change the name of the branch LOCALLY. In order to let other collaborators see the new branch name on the remote, use the command:
+
+`git push --set-upstream origin <new-branch-name>`
+
+If you run the `git branch --all` command after changing the name of a branch, you will notice that the old branch name still appears. To delete this, use the command:
+
+`git push origin --delete <old-branch-name>`
+
+## Branching Workflows
 
 
-**PAGE LEFT OFF ON: 76**
+
+**PAGE LEFT OFF ON: 82**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
