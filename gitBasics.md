@@ -681,7 +681,36 @@ This section will list out the most common workflows with branching.
 
 ### Long-Running Branches
 
-**PAGE LEFT OFF ON: 82**
+Since Git uses a three-way merge, its easy to merge multiple times. Some Git developers might use this approach when writing code:
+
+1. `master` branch: Only has code that is stable and works properly without any bugs/issues.
+2. `develop` branch: Used to work on future versions of the code or used to test stability. Can be merged into `master` once the code is tested.
+3. `topic` branch: Short-lived branches to fix bugs. Is merged into `develop` branch where it will be tested.
+
+![Linear view of Progressive Stability Branching](Images/Long-Running-Branches.png)
+
+![Silo View](Images/Silo-view.png)
+
+You can think each level as having different levels of stability, with the `master` branch being the most stable.
+
+### Topic Branches
+
+A topic branch is a short-lived branch created for a single particular feature or related work. You can create multiple topic branches at a time and it might look something like this:
+
+
+![Multiple Topic Branches](Images/Multiple-topic-branches.png)
+
+And after merging some branches it might look like this:
+
+![Merging History of Topic Branches](Images/Topic-Merging-History.png)
+
+
+Keep in mind all these branches are LOCAL. That is to say, there is no communication with the server.
+
+## Remote Branches
+
+
+**PAGE LEFT OFF ON: 85**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
