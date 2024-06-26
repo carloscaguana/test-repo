@@ -485,7 +485,7 @@ Branching is when you diverge from the main line of development to continue to d
   - [Basic Merging](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-merging)
   - [Deleting Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#deleting-branches)
   - [Basic Merge Conflicts](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-merge-conflicts)
-- [Branch Management](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branch-managementS)
+- [Branch Management](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branch-management)
   - [Changing a Branch Name](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#changing-a-branch-name)
 - [Branching Workflows](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branching-workflows)
   - [Long-Running Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#long-running-branches)
