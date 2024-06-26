@@ -677,7 +677,7 @@ If you run the `git branch --all` command after changing the name of a branch, y
 
 ## Branching Workflows
 
-**ADD STUFF HERE BEFORE PROCEEDING**
+This section will list out the most common workflows with branching. 
 
 ### Long-Running Branches
 
