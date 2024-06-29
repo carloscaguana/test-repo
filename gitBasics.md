@@ -749,6 +749,14 @@ Now lets assume you run the `git fetch teamone` command to fetch everything from
 
 ### Pushing
 
+### Tracking Branches
+
+### Pulling
+
+### Deleting Remote Branches
+
+## Rebasing
+
 **PAGE LEFT OFF ON: 91**
 
 **Create link to TOC for 'Git Branching' and other headings added**
