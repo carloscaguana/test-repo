@@ -715,8 +715,41 @@ Keep in mind all these branches are LOCAL. That is to say, there is no communica
 
 ## Remote Branches
 
+Remote references are pointers in your remote repos (including branches, tags, etc.). To see a list of these references, use the command:
 
-**PAGE LEFT OFF ON: 85**
+`git ls-remote <remote>`
+
+`git remote show <remote>`
+
+Remote-tracking branches are references to the state of remote branches. You cannot move them, unlike your local branches. Git does the moving for you whenever you do any network communication (in other words, whenever you interact with the remote server via pushing/pulling).
+
+Remote-tracking branch names will look something like this:
+
+`<remote>/<branch>`
+
+For example, lets assume we have a Git server called `git.ourcompany.com`. When you clone this server, Git's `clone` command automatically names it `origin` for you, pulls down all the data, creates a pointer to where its `master` branch is, and names it `origin/master` locally. It also gives you your own `master` branch starting at the same place as the `origin/master` branch.
+
+![Server and Local Repos After Cloning](Images/Clone-from-Server.png)
+
+Assume you do some work on your local `master` branch and in that same time, someone else pushes to the `git.ourcompany.com` server and updates the `master` branch. Also, notice how the `origin/master` branch doesn't move at all since you made no contact with the server.
+
+![Local and Remote Work can Diverge](Images/Local-and-Remote-Diverge.png)
+
+To synchronize your work with a remote server, you run a `git fetch <remote>` command. This fetches any data from the server you don't have yet, and updates your local database while also moving your `origin/master` pointer to its new, more up-to-date position.
+
+![Fetching Updates your Remote-Tracking Branches](Images/Fetching-From-Server.png)
+
+If you have multiple remote servers, the remote branches for these servers will look something like this:
+
+![Adding Another Server as a Remote](Images/Multiple-Remote-Servers.png)
+
+Now lets assume you run the `git fetch teamone` command to fetch everything from the `git.team1.ourcompany.com` server. Since this server has a subset of the data your `origin` server has, Git fetches no data but simply sets a remote-tracking branch called `teamone/master` that points to the commit that `teamone` has as its `master` branch.
+
+![Remote-Tracking Branch for teamone/master](Images/Fetching-From-Teamone.png)
+
+### Pushing
+
+**PAGE LEFT OFF ON: 91**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
