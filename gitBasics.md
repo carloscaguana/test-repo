@@ -747,7 +747,31 @@ Now lets assume you run the `git fetch teamone` command to fetch everything from
 
 ![Remote-Tracking Branch for teamone/master](Images/Fetching-From-Teamone.png)
 
-### Pushing
+### Pushing Branches
+
+In order to push your local branch onto the remote server, use the command:
+
+`git push <remote> <branch>`
+
+You could also do the same thing using the command:
+
+`git push <remote> <local-branch-name>:<remote-branch-name>`
+
+An additional benefit with this command is that you could rename the remote branch something else. For example, say you want to push local branch `serverfix` onto the remote server with the name `awesomebranch`. The command would look something like this:
+
+>`git push origin serverfix:awesomebranch`
+
+When a collaborator fetches from the server, they will get a reference to where ther server's version of `serverfix` is under the remote branch `origin/serverfix`. 
+
+Be aware that when you do a fetch that brings down new remote-tracking branhces, you DON'T automatically have a local, editable copies of them. Simply put, you DON'T have a new `serverfix` branch - you only have an `origin/serverfix` pointer u CAN'T modify. To merge this work int your current working branch, you can run the command `git merge origin/serverfix`.
+
+If you want your own `serverfix` branch that you can work on, you can base it off your remote-tracking branch:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+Using the example above, it would look like this:
+
+>`git checkout -b serverfix origin/serverfix`
 
 ### Tracking Branches
 
@@ -757,7 +781,7 @@ Now lets assume you run the `git fetch teamone` command to fetch everything from
 
 ## Rebasing
 
-**PAGE LEFT OFF ON: 91**
+**PAGE LEFT OFF ON: 92**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
