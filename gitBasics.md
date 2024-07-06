@@ -715,17 +715,111 @@ Keep in mind all these branches are LOCAL. That is to say, there is no communica
 
 ## Remote Branches
 
-### Pushing 
+Remote references are pointers in your remote repos (including branches, tags, etc.). To see a list of these references, use the command:
+
+`git ls-remote <remote>`
+
+`git remote show <remote>`
+
+Remote-tracking branches are references to the state of remote branches. You cannot move them, unlike your local branches. Git does the moving for you whenever you do any network communication (in other words, whenever you interact with the remote server via pushing/pulling).
+
+Remote-tracking branch names will look something like this:
+
+`<remote>/<branch>`
+
+For example, lets assume we have a Git server called `git.ourcompany.com`. When you clone this server, Git's `clone` command automatically names it `origin` for you, pulls down all the data, creates a pointer to where its `master` branch is, and names it `origin/master` locally. It also gives you your own `master` branch starting at the same place as the `origin/master` branch.
+
+![Server and Local Repos After Cloning](Images/Clone-from-Server.png)
+
+Assume you do some work on your local `master` branch and in that same time, someone else pushes to the `git.ourcompany.com` server and updates the `master` branch. Also, notice how the `origin/master` branch doesn't move at all since you made no contact with the server.
+
+![Local and Remote Work can Diverge](Images/Local-and-Remote-Diverge.png)
+
+To synchronize your work with a remote server, you run a `git fetch <remote>` command. This fetches any data from the server you don't have yet, and updates your local database while also moving your `origin/master` pointer to its new, more up-to-date position.
+
+![Fetching Updates your Remote-Tracking Branches](Images/Fetching-From-Server.png)
+
+If you have multiple remote servers, the remote branches for these servers will look something like this:
+
+![Adding Another Server as a Remote](Images/Multiple-Remote-Servers.png)
+
+Now lets assume you run the `git fetch teamone` command to fetch everything from the `git.team1.ourcompany.com` server. Since this server has a subset of the data your `origin` server has, Git fetches no data but simply sets a remote-tracking branch called `teamone/master` that points to the commit that `teamone` has as its `master` branch.
+
+![Remote-Tracking Branch for teamone/master](Images/Fetching-From-Teamone.png)
+
+### Pushing Branches
+
+In order to push your local branch onto the remote server, use the command:
+
+`git push <remote> <branch>`
+
+You could also do the same thing using the command:
+
+`git push <remote> <local-branch-name>:<remote-branch-name>`
+
+An additional benefit with this command is that you could rename the remote branch something else. For example, say you want to push local branch `serverfix` onto the remote server with the name `awesomebranch`. The command would look something like this:
+
+>`git push origin serverfix:awesomebranch`
+
+When a collaborator fetches from the server, they will get a reference to where ther server's version of `serverfix` is under the remote branch `origin/serverfix`. 
+
+Be aware that when you do a fetch that brings down new remote-tracking branhces, you DON'T automatically have a local, editable copies of them. Simply put, you DON'T have a new `serverfix` branch - you only have an `origin/serverfix` pointer u CAN'T modify. To merge this work int your current working branch, you can run the command `git merge origin/serverfix`.
+
+If you want your own `serverfix` branch that you can work on, you can base it off your remote-tracking branch:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+Using the example above, it would look like this:
+
+>`git checkout -b serverfix origin/serverfix`
 
 ### Tracking Branches
 
+Tracking branches are local branches that have a direct relationship to a remote branch. If you're on a tracking branch and type `git pull`, Git automatically knows which server to fetch from and which branch to merge in.
+
+You can also set up other tracking branches - ones that track branches on other remotes. Use the command:
+
+`git checkout --track <remote>/<branch>`
+
+Another similar command you can use to create a tracking branch if the branch name you're trying to checkout (a) doesn't exist and (b) exactly matches a name on only one remote is:
+
+`git checkout <branch-name>`
+
+To set up a local branch with a different name than the remote branch, use the command:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+If you have a local branch and whant to set it to a remote branch you just pulled down, or want to change the upstream branch you're tracking, you can use the command:
+
+`git branch -u <remote>/<branch>`
+
+To see what tracking branches you have set up, the following command will list out your local branches with info about what each branch is tracking and if your local branch is ahead, behind, or both. Keep in mind these numbers are only since the last time you fetched from each server:
+
+`git branch -vv`
+
+If you want an up-to-date ahead and behind numbers, you'll need to fetch from all your remotes before running the command above. You could use a command like this to do it all at once:
+
+`git fetch --all; git branch -vv`
+
 ### Pulling
+
+`git pull`
+
+This command is essentially a `git fetch` followed by a `git merge`. Ideally, it's better to not rely on this command and instead use `git fetch` and `git merge` explicitly.
 
 ### Deleting Remote Branches
 
+Once you've decided it's time to delete a remote branch from the server, use the following command:
+
+`git push <remote> --delete <branch-name>`
+
+All this does is it removes the pointer from the server.
+
 ## Rebasing
 
-**PAGE LEFT OFF ON: 85**
+
+
+**PAGE LEFT OFF ON: 92**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
