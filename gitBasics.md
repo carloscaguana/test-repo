@@ -775,11 +775,49 @@ Using the example above, it would look like this:
 
 ### Tracking Branches
 
+Tracking branches are local branches that have a direct relationship to a remote branch. If you're on a tracking branch and type `git pull`, Git automatically knows which server to fetch from and which branch to merge in.
+
+You can also set up other tracking branches - ones that track branches on other remotes. Use the command:
+
+`git checkout --track <remote>/<branch>`
+
+Another similar command you can use to create a tracking branch if the branch name you're trying to checkout (a) doesn't exist and (b) exactly matches a name on only one remote is:
+
+`git checkout <branch-name>`
+
+To set up a local branch with a different name than the remote branch, use the command:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+If you have a local branch and whant to set it to a remote branch you just pulled down, or want to change the upstream branch you're tracking, you can use the command:
+
+`git branch -u <remote>/<branch>`
+
+To see what tracking branches you have set up, the following command will list out your local branches with info about what each branch is tracking and if your local branch is ahead, behind, or both. Keep in mind these numbers are only since the last time you fetched from each server:
+
+`git branch -vv`
+
+If you want an up-to-date ahead and behind numbers, you'll need to fetch from all your remotes before running the command above. You could use a command like this to do it all at once:
+
+`git fetch --all; git branch -vv`
+
 ### Pulling
+
+`git pull`
+
+This command is essentially a `git fetch` followed by a `git merge`. Ideally, it's better to not rely on this command and instead use `git fetch` and `git merge` explicitly.
 
 ### Deleting Remote Branches
 
+Once you've decided it's time to delete a remote branch from the server, use the following command:
+
+`git push <remote> --delete <branch-name>`
+
+All this does is it removes the pointer from the server.
+
 ## Rebasing
+
+
 
 **PAGE LEFT OFF ON: 92**
 
