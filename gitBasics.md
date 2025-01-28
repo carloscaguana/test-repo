@@ -482,6 +482,16 @@ Branching is when you diverge from the main line of development to continue to d
   - [Creating a New Branch](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#creating-a-new-branch)
   - [Switching Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#switching-branches)
 - [Basic Branching and Merging](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-branching-and-merging)
+  - [Basic Branching](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-branching)
+  - [Basic Merging](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-merging)
+  - [Deleting Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#deleting-branches)
+  - [Basic Merge Conflicts](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#basic-merge-conflicts)
+- [Branch Management](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branch-management)
+  - [Changing a Branch Name](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#changing-a-branch-name)
+- [Branching Workflows](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#branching-workflows)
+  - [Long-Running Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#long-running-branches)
+  - [Topic Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#topic-branches)
+- [Remote Branches](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#remote-branches)
 
 ## Branches in a Nutshell
 
@@ -626,9 +636,191 @@ If you are no longer using a branch, you can use the following command to delete
 
 ### Basic Merge Conflicts
 
+There will be conflicts between branches when you change the same part of a file on both branches you want to merge. Instead of merging, Git will pause the merge and prompt the user to fix the issue before proceeding. 
+
+Use `git status` to view which files are unmerged. Anything that has merge conflicts will be listed as 'unmerged.' Git adds standard conflict resolution markers to the files that have conflicts which would look something like this:
+
+>`<<<<<<< HEAD: CONTENTS OF CONFLICTS IN BRANCH YOU WANT TO MERGE INTO (USUALLY MAIN)`
+>
+> `=======`
+>
+> `CONFLICTS IN BRANCH THAT'S BEING MERGED >>>>>>>`
+
+In order to solve these conflicts, you could either choose to keep one of the sides or change the entire contents of the conflicts by removing the `<,=,>` markers.
+
+After resolving these sections, you want to stage the files by using the `git add` command to mark it as resolved.
+
+Run `git status` command to ensure that all conflicts have been resolved. Once you're content with the files, run `git commit` to finalize the merge commit.
+
+## Branch Management
+
+The `*` character you see when you run the `git branch` command indicates the current branch you are on (i.e. the branch that `HEAD` points to).
+
+`git branch -v`
+
+This command displays the last commit on each branch.
+
+`git branch --merged`
+
+This command filters the list of branches that you have merged into the branch you're currently on.
+
+`git branch --no-merged`
+
+This command filters the list of branches that you have not yet merged into the current branch.
+
+### Changing a Branch Name
+
+When working in teams, you SHOULD NOT rename branches that are still being used by collaborators.
+
+`git branch --move <old-branch-name> <new-branch-name>`
+
+This command will change the name of the branch LOCALLY. In order to let other collaborators see the new branch name on the remote, use the command:
+
+`git push --set-upstream origin <new-branch-name>`
+
+If you run the `git branch --all` command after changing the name of a branch, you will notice that the old branch name still appears. To delete this, use the command:
+
+`git push origin --delete <old-branch-name>`
+
+## Branching Workflows
+
+This section will list out the most common workflows with branching. 
+
+### Long-Running Branches
+
+Since Git uses a three-way merge, its easy to merge multiple times. Some Git developers might use this approach when writing code:
+
+1. `master` branch: Only has code that is stable and works properly without any bugs/issues.
+2. `develop` branch: Used to work on future versions of the code or used to test stability. Can be merged into `master` once the code is tested.
+3. `topic` branch: Short-lived branches to fix bugs. Is merged into `develop` branch where it will be tested.
+
+![Linear view of Progressive Stability Branching](Images/Long-Running-Branches.png)
+
+![Silo View](Images/Silo-view.png)
+
+You can think each level as having different levels of stability, with the `master` branch being the most stable.
+
+### Topic Branches
+
+A topic branch is a short-lived branch created for a single particular feature or related work. You can create multiple topic branches at a time and it might look something like this:
 
 
-**PAGE LEFT OFF ON: 76**
+![Multiple Topic Branches](Images/Multiple-topic-branches.png)
+
+And after merging some branches it might look like this:
+
+![Merging History of Topic Branches](Images/Topic-Merging-History.png)
+
+
+Keep in mind all these branches are LOCAL. That is to say, there is no communication with the server.
+
+## Remote Branches
+
+Remote references are pointers in your remote repos (including branches, tags, etc.). To see a list of these references, use the command:
+
+`git ls-remote <remote>`
+
+`git remote show <remote>`
+
+Remote-tracking branches are references to the state of remote branches. You cannot move them, unlike your local branches. Git does the moving for you whenever you do any network communication (in other words, whenever you interact with the remote server via pushing/pulling).
+
+Remote-tracking branch names will look something like this:
+
+`<remote>/<branch>`
+
+For example, lets assume we have a Git server called `git.ourcompany.com`. When you clone this server, Git's `clone` command automatically names it `origin` for you, pulls down all the data, creates a pointer to where its `master` branch is, and names it `origin/master` locally. It also gives you your own `master` branch starting at the same place as the `origin/master` branch.
+
+![Server and Local Repos After Cloning](Images/Clone-from-Server.png)
+
+Assume you do some work on your local `master` branch and in that same time, someone else pushes to the `git.ourcompany.com` server and updates the `master` branch. Also, notice how the `origin/master` branch doesn't move at all since you made no contact with the server.
+
+![Local and Remote Work can Diverge](Images/Local-and-Remote-Diverge.png)
+
+To synchronize your work with a remote server, you run a `git fetch <remote>` command. This fetches any data from the server you don't have yet, and updates your local database while also moving your `origin/master` pointer to its new, more up-to-date position.
+
+![Fetching Updates your Remote-Tracking Branches](Images/Fetching-From-Server.png)
+
+If you have multiple remote servers, the remote branches for these servers will look something like this:
+
+![Adding Another Server as a Remote](Images/Multiple-Remote-Servers.png)
+
+Now lets assume you run the `git fetch teamone` command to fetch everything from the `git.team1.ourcompany.com` server. Since this server has a subset of the data your `origin` server has, Git fetches no data but simply sets a remote-tracking branch called `teamone/master` that points to the commit that `teamone` has as its `master` branch.
+
+![Remote-Tracking Branch for teamone/master](Images/Fetching-From-Teamone.png)
+
+### Pushing Branches
+
+In order to push your local branch onto the remote server, use the command:
+
+`git push <remote> <branch>`
+
+You could also do the same thing using the command:
+
+`git push <remote> <local-branch-name>:<remote-branch-name>`
+
+An additional benefit with this command is that you could rename the remote branch something else. For example, say you want to push local branch `serverfix` onto the remote server with the name `awesomebranch`. The command would look something like this:
+
+>`git push origin serverfix:awesomebranch`
+
+When a collaborator fetches from the server, they will get a reference to where ther server's version of `serverfix` is under the remote branch `origin/serverfix`. 
+
+Be aware that when you do a fetch that brings down new remote-tracking branhces, you DON'T automatically have a local, editable copies of them. Simply put, you DON'T have a new `serverfix` branch - you only have an `origin/serverfix` pointer u CAN'T modify. To merge this work int your current working branch, you can run the command `git merge origin/serverfix`.
+
+If you want your own `serverfix` branch that you can work on, you can base it off your remote-tracking branch:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+Using the example above, it would look like this:
+
+>`git checkout -b serverfix origin/serverfix`
+
+### Tracking Branches
+
+Tracking branches are local branches that have a direct relationship to a remote branch. If you're on a tracking branch and type `git pull`, Git automatically knows which server to fetch from and which branch to merge in.
+
+You can also set up other tracking branches - ones that track branches on other remotes. Use the command:
+
+`git checkout --track <remote>/<branch>`
+
+Another similar command you can use to create a tracking branch if the branch name you're trying to checkout (a) doesn't exist and (b) exactly matches a name on only one remote is:
+
+`git checkout <branch-name>`
+
+To set up a local branch with a different name than the remote branch, use the command:
+
+`git checkout -b <local-branch-name> <remote>/<remote-branch-name>`
+
+If you have a local branch and whant to set it to a remote branch you just pulled down, or want to change the upstream branch you're tracking, you can use the command:
+
+`git branch -u <remote>/<branch>`
+
+To see what tracking branches you have set up, the following command will list out your local branches with info about what each branch is tracking and if your local branch is ahead, behind, or both. Keep in mind these numbers are only since the last time you fetched from each server:
+
+`git branch -vv`
+
+If you want an up-to-date ahead and behind numbers, you'll need to fetch from all your remotes before running the command above. You could use a command like this to do it all at once:
+
+`git fetch --all; git branch -vv`
+
+### Pulling
+
+`git pull`
+
+This command is essentially a `git fetch` followed by a `git merge`. Ideally, it's better to not rely on this command and instead use `git fetch` and `git merge` explicitly.
+
+### Deleting Remote Branches
+
+Once you've decided it's time to delete a remote branch from the server, use the following command:
+
+`git push <remote> --delete <branch-name>`
+
+All this does is it removes the pointer from the server.
+
+## Rebasing
+
+
+
+**PAGE LEFT OFF ON: 92**
 
 **Create link to TOC for 'Git Branching' and other headings added**
 
