@@ -253,6 +253,7 @@ To quickly view the latest commit made, you can use the command:
 `git log -1`
 
 Another useful option is `-p` or `--patch` which shows the difference introduced in each commit.
+
 `git log --stat`
 
 This command prints out each commit entry, a list of modified files, how many files were changed, and how many lines in those files were added/removed. A summary is also included at the end. 
