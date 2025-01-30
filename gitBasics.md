@@ -27,7 +27,7 @@ This file contains information that I find important in order to understand and 
   - [Committing your Changes](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#committing-your-changes)
   - [Skipping the Staging Area](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#skipping-the-staging-area)
   - [Removing Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#removing-files)
-  - [Moving Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#moving-files)
+  - [Renaming (Moving) Files](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#renaming-moving-files)
 - [Viewing the Commit History](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#viewing-the-commit-history)
   - [Limiting Log Output](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#limiting-log-output)
 - [Undoing Things](https://github.com/carloscaguana/test-repo/blob/main/gitBasics.md#undoing-things)
