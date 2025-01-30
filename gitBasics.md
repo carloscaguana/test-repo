@@ -270,7 +270,7 @@ This command changes the log output to different formats compared to the default
 
 `git log --pretty=fuller`
 
-`git log ==pretty=format`
+`git log --pretty=format:"<format specifiers>"` 
 
 The `format` option value lets you customize the log output format. A list of specifiers to use after `format:`
 ![Useful specifiers for 'format'](Images/'format'%20specifiers.png)
