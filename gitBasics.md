@@ -235,7 +235,7 @@ This forces a removal of a file.
 
 You can pass files, directories, and file-golb patterns to these commands. Search 'file glob patterns.'
 
-### Moving Files
+### Renaming (Moving) Files
 
 Git doesn't track file movement. Instead, it renames them. Use the following command to rename a file:
 
